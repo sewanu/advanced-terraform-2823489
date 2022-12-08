@@ -56,8 +56,8 @@ resource "aws_s3_bucket" "sewred30-tfremotestate" {
 EOF
 }
 
-resource "aws_s3_bucket_public_access_block" "sewred30-tfremotestate" {
-  bucket = aws_s3_bucket.sewred30-tfremotestate.id
+resource "aws_s3_bucket_public_access_block" "sewered30-tfremotestate" {
+  bucket = aws_s3_bucket.sewered30-tfremotestate.id
 
   block_public_acls   = true
   block_public_policy = true
@@ -68,8 +68,8 @@ resource "aws_s3_bucket_public_access_block" "sewred30-tfremotestate" {
 # //////////////////////////////
 # DYNAMODB TABLE
 # //////////////////////////////
-resource "aws_dynamodb_table" "sewtf_db_statelock" {
-  name           = "sewred30-tfstatelock"
+resource "aws_dynamodb_table" "sewetf_db_statelock" {
+  name           = "sewered30-tfstatelock"
   read_capacity  = 20
   write_capacity = 20
   hash_key       = "LockID"
@@ -94,7 +94,7 @@ resource "aws_iam_user_policy" "terraform_user_dbtable" {
             "Effect": "Allow",
             "Action": ["dynamodb:*"],
             "Resource": [
-                "${aws_dynamodb_table.sewtf_db_statelock.arn}"
+                "${aws_dynamodb_table.sewetf_db_statelock.arn}"
             ]
         }
    ]
