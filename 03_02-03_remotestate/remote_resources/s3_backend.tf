@@ -56,8 +56,8 @@ resource "aws_s3_bucket" "sewred30-tfremotestate" {
 EOF
 }
 
-resource "aws_s3_bucket_public_access_block" "sewered30-tfremotestate" {
-  bucket = aws_s3_bucket.sewered30-tfremotestate.id
+resource "aws_s3_bucket_public_access_block" "sewred30-tfremotestate" {
+  bucket = aws_s3_bucket.sewred30-tfremotestate.id
 
   block_public_acls   = true
   block_public_policy = true
