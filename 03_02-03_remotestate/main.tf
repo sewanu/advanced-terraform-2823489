@@ -2,19 +2,14 @@
 # BACKEND
 # //////////////////////////////
 terraform {
-  required_providers {
-    random = {
-      source  = "hashicorp/random"
-      version = "3.1.0"
-    }
+  required_version = ">= 0.13.1"
 
+  required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 2.0.0"
+      version = ">= 3.73"
     }
   }
-
-  required_version = ">= 1.1"
   
   backend "s3" {
   }
@@ -65,4 +60,5 @@ module "vpc" {
 
   enable_nat_gateway = true
   single_nat_gateway = true
+  create_vpc = false
 }
